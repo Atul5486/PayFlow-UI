@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap');
+
+.not-found-page {
+  --ink: #0a1228;
+  --teal: #00b9f1;
+  --sky: #7ce6ff;
+  --mist: #f2fbff;
+
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(124, 230, 255, 0.32), transparent 32%),
+    radial-gradient(circle at 90% 80%, rgba(0, 185, 241, 0.22), transparent 30%),
+    linear-gradient(160deg, #06102a 0%, #0c1b3f 45%, #081733 100%);
+  font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+}
+
+.not-found-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0.5px);
+  animation: orbit 14s linear infinite;
+}
+
+.orb-one {
+  width: 280px;
+  height: 280px;
+  left: -90px;
+  top: 18%;
+  background: radial-gradient(circle, rgba(0, 185, 241, 0.55) 0%, rgba(0, 185, 241, 0.08) 72%, transparent 100%);
+}
+
+.orb-two {
+  width: 360px;
+  height: 360px;
+  right: -140px;
+  bottom: 10%;
+  animation-duration: 19s;
+  animation-direction: reverse;
+  background: radial-gradient(circle, rgba(124, 230, 255, 0.48) 0%, rgba(124, 230, 255, 0.07) 70%, transparent 100%);
+}
+
+.orb-three {
+  width: 130px;
+  height: 130px;
+  right: 18%;
+  top: 12%;
+  animation-duration: 9s;
+  background: radial-gradient(circle, rgba(242, 251, 255, 0.48) 0%, rgba(242, 251, 255, 0.09) 68%, transparent 100%);
+}
+
+.not-found-card {
+  width: min(680px, 100%);
+  border-radius: 24px;
+  padding: clamp(28px, 4vw, 48px);
+  text-align: center;
+  color: #e7f6ff;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(124, 230, 255, 0.38);
+  background: linear-gradient(140deg, rgba(5, 17, 43, 0.9) 0%, rgba(12, 28, 64, 0.83) 100%);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  animation: rise 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.not-found-code {
+  margin: 0;
+  line-height: 0.9;
+  font-weight: 800;
+  font-size: clamp(4rem, 20vw, 9rem);
+  letter-spacing: 0.04em;
+  color: var(--mist);
+  text-shadow:
+    0 0 0 rgba(0, 0, 0, 0),
+    -3px 0 var(--teal),
+    3px 0 #2fd1ff;
+  animation: glitchPulse 2.3s ease-in-out infinite;
+}
+
+.not-found-card h1 {
+  margin: 16px 0 10px;
+  font-size: clamp(1.45rem, 3.2vw, 2.2rem);
+  font-weight: 700;
+  color: #f0fbff;
+}
+
+.not-found-copy {
+  margin: 0 auto;
+  max-width: 42ch;
+  font-size: clamp(0.98rem, 2.1vw, 1.1rem);
+  color: #c4dded;
+}
+
+.not-found-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nf-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.nf-btn:hover {
+  transform: translateY(-2px);
+}
+
+.nf-btn.primary {
+  background: linear-gradient(135deg, var(--teal) 0%, #0e8fdb 100%);
+  color: #041022;
+  box-shadow: 0 10px 24px rgba(0, 185, 241, 0.33);
+}
+
+.nf-btn.primary:hover {
+  box-shadow: 0 14px 28px rgba(0, 185, 241, 0.42);
+}
+
+.nf-btn.ghost {
+  color: #d6eefc;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(124, 230, 255, 0.42);
+}
+
+.nf-btn.ghost:hover {
+  background: rgba(124, 230, 255, 0.14);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes orbit {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(12px);
+  }
+}
+
+@keyframes glitchPulse {
+  0%,
+  100% {
+    transform: translateX(0);
+    text-shadow:
+      0 0 0 rgba(0, 0, 0, 0),
+      -3px 0 var(--teal),
+      3px 0 #2fd1ff;
+  }
+  25% {
+    transform: translateX(-1px);
+    text-shadow:
+      0 0 12px rgba(124, 230, 255, 0.45),
+      -2px 0 var(--teal),
+      2px 0 #2fd1ff;
+  }
+  50% {
+    transform: translateX(1px);
+    text-shadow:
+      0 0 18px rgba(124, 230, 255, 0.4),
+      -4px 0 var(--teal),
+      4px 0 #2fd1ff;
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
+@media (max-width: 700px) {
+  .not-found-card {
+    border-radius: 20px;
+  }
+
+  .not-found-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nf-btn {
+    width: 100%;
+  }
+}
